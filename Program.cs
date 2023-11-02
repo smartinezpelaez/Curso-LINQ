@@ -11,7 +11,16 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.LibrosDespuesde2000());
 
 //Libros con mas de 250 paginas y el titulo contenga la palabra "in Action"
-ImprimirValores(queries.LibrosConMasDe250PagInAction());
+//ImprimirValores(queries.LibrosConMasDe250PagInAction());
+
+//Libros que contengas alguna palabra en Status con metodo de extension
+Console.WriteLine( $"Todos los libros tienen Status? - {queries.LibrosConStatus()}" );
+
+//Libros que contengas alguna palabra en Status con metodo de consulta Query expresion
+ImprimirValores(queries.LibrosConStatusQuery());
+
+
+
 
 //Imprime todos los datos del Json
 void ImprimirValores (IEnumerable<Book> listaDeLibros)

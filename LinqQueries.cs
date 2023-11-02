@@ -40,7 +40,19 @@ public class LinqQueries
                where l.PageCount > 250 &&
                l.Title.Contains("in Action")
                select l;
+    }
 
+    public bool LibrosConStatus()
+    {
+        //Manera con Extension method 
+        return librosCollection.All(p => p.Status != string.Empty);
+       
+    }
 
+    public IEnumerable<Book> LibrosConStatusQuery() 
+    {
+        return from l in librosCollection
+               where !string.IsNullOrEmpty(l.Status)
+               select l;    
     }
 }
