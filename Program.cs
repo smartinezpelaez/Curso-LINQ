@@ -11,7 +11,7 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.LibrosDespuesde2000());
 
 //Libros con mas de 250 paginas y el titulo contenga la palabra "in Action"
-ImprimirValores(queries.LibrosConMasDe250PagYAction());
+ImprimirValores(queries.LibrosConMasDe250PagInAction());
 
 //Imprime todos los datos del Json
 void ImprimirValores (IEnumerable<Book> listaDeLibros)

@@ -29,7 +29,7 @@ public class LinqQueries
                select l;
     }
 
-    public IEnumerable<Book> LibrosConMasDe250PagYAction() 
+    public IEnumerable<Book> LibrosConMasDe250PagInAction() 
     {
         //Manera con Extension method 
         //return librosCollection.Where(p=> p.PageCount > 250 
