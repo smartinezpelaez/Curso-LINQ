@@ -14,12 +14,16 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.LibrosConMasDe250PagInAction());
 
 //Libros que contengas alguna palabra en Status con metodo de extension
-Console.WriteLine( $"Todos los libros tienen Status? - {queries.LibrosConStatus()}" );
+//Console.WriteLine( $"Todos los libros tienen Status? - {queries.LibrosConStatus()}" );
 
 //Libros que contengas alguna palabra en Status con metodo de consulta Query expresion
-ImprimirValores(queries.LibrosConStatusQuery());
+//ImprimirValores(queries.LibrosConStatusQuery());
 
+//Algun libro fue publicado en 2005
+Console.WriteLine($"Algun libro fue publicado en 2005? - {queries.AlgunLibroPublicadoEn2005()}");
 
+//Algun libro fue publicado en 2005 query
+ImprimirValores(queries.AlgunLibroPublicadoEn2005Query());
 
 
 //Imprime todos los datos del Json

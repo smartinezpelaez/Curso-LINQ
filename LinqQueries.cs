@@ -51,8 +51,26 @@ public class LinqQueries
 
     public IEnumerable<Book> LibrosConStatusQuery() 
     {
+        //Manera con query expresion
         return from l in librosCollection
                where !string.IsNullOrEmpty(l.Status)
                select l;    
     }
+
+    public bool AlgunLibroPublicadoEn2005()
+    {
+        //Manera con Extension method 
+        return librosCollection.Any(p => p.PublishedDate.Year ==2005 );
+    }
+
+    public IEnumerable<Book> AlgunLibroPublicadoEn2005Query()
+    {
+
+
+        //Manera con query expresion
+        return from l in librosCollection
+               where l.PublishedDate.Year == 2005
+               select l;
+    }
+
 }
