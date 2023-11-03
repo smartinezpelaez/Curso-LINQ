@@ -143,4 +143,16 @@ public class LinqQueries
             Select(p => new Book{Title= p.Title, PageCount = p.PageCount, PublishedDate = p.PublishedDate});
     
     }
+
+    public int OperadorCountNumeroLibros200y500() 
+    {
+        return librosCollection.Count(p => p.PageCount >= 200 && p.PageCount <= 500);
+            
+    }
+
+    public long OperadorCountNumeroLibros200y500pag()
+    {
+        return librosCollection.LongCount(p => p.PageCount >= 200 && p.PageCount <= 500);
+
+    }
 }

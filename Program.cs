@@ -41,7 +41,13 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.OperadorSkipSeleccionaTerceryCuartoLibro());
 
 //Operador Select Tres primeros Libros
-ImprimirValores(queries.OperadorSelectTresprimerosLibros());
+//ImprimirValores(queries.OperadorSelectTresprimerosLibros());
+
+//Operador Count Numero Libros entre 200 y 500
+Console.WriteLine($"los  Libros entre 200 y 500 paginas son ? = {queries.OperadorCountNumeroLibros200y500()}");
+
+//Operador LongCount Numero Libros entre 200 y 500
+Console.WriteLine($"los  Libros entre 200 y 500 paginas son ? = {queries.OperadorCountNumeroLibros200y500pag()}");
 
 
 //Imprime todos los datos del Json
