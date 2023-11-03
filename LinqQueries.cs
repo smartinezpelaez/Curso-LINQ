@@ -4,23 +4,23 @@ namespace curso_linq;
 
 public class LinqQueries
 {
-    private List<Book> librosCollection;   
+    private List<Book> librosCollection;
     public LinqQueries()
     {
-        using (StreamReader reader = new StreamReader("books.json")) 
+        using (StreamReader reader = new StreamReader("books.json"))
         {
             string json = reader.ReadToEnd();
             this.librosCollection = System.Text.Json.JsonSerializer.
-                Deserialize<List<Book>>(json, new System.Text.Json.JsonSerializerOptions() { PropertyNameCaseInsensitive = true});
+                Deserialize<List<Book>>(json, new System.Text.Json.JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-        } 
+        }
     }
-    public IEnumerable<Book> TodaLaCollecion() 
+    public IEnumerable<Book> TodaLaCollecion()
     {
         return librosCollection;
     }
 
-    public IEnumerable<Book> LibrosDespuesde2000() 
+    public IEnumerable<Book> LibrosDespuesde2000()
     {
         //Manera con Extension method
         //return librosCollection.Where(p => p.PublishedDate.Year > 2000);
@@ -31,7 +31,7 @@ public class LinqQueries
                select l;
     }
 
-    public IEnumerable<Book> LibrosConMasDe250PagInAction() 
+    public IEnumerable<Book> LibrosConMasDe250PagInAction()
     {
         //Manera con Extension method 
         //return librosCollection.Where(p=> p.PageCount > 250 
@@ -48,21 +48,21 @@ public class LinqQueries
     {
         //Manera con Extension method 
         return librosCollection.All(p => p.Status != string.Empty);
-       
+
     }
 
-    public IEnumerable<Book> LibrosConStatusQuery() 
+    public IEnumerable<Book> LibrosConStatusQuery()
     {
         //Manera con query expresion
         return from l in librosCollection
                where !string.IsNullOrEmpty(l.Status)
-               select l;    
+               select l;
     }
 
     public bool AlgunLibroPublicadoEn2005()
     {
         //Manera con Extension method 
-        return librosCollection.Any(p => p.PublishedDate.Year ==2005 );
+        return librosCollection.Any(p => p.PublishedDate.Year == 2005);
     }
 
     public IEnumerable<Book> AlgunLibroPublicadoEn2005Query()
@@ -75,7 +75,7 @@ public class LinqQueries
                select l;
     }
 
-    public IEnumerable<Book> CategoriaPython() 
+    public IEnumerable<Book> CategoriaPython()
     {
         //Manera con Extension method 
         return librosCollection.Where(p => p.Categories.Contains("Python"));
@@ -86,7 +86,7 @@ public class LinqQueries
         //       select l;    
     }
 
-    public IEnumerable<Book> CategoriaOrderByJava() 
+    public IEnumerable<Book> CategoriaOrderByJava()
     {
         //Manera con Extension method 
         return librosCollection.Where(p => p.Categories.Contains("Java")).OrderBy(p => p.Title);
@@ -127,27 +127,27 @@ public class LinqQueries
                 select l).OrderByDescending(p => p.PublishedDate).Take(3);
     }
 
-    public IEnumerable<Book> OperadorSkipSeleccionaTerceryCuartoLibro() 
+    public IEnumerable<Book> OperadorSkipSeleccionaTerceryCuartoLibro()
     {
         //Manera con Extension method 
         return librosCollection.
             Where(p => p.PageCount > 400).
             Take(4).
-            Skip(2);        
+            Skip(2);
     }
 
-    public IEnumerable<Book> OperadorSelectTresprimerosLibros() 
+    public IEnumerable<Book> OperadorSelectTresprimerosLibros()
     {
-           return librosCollection.
-            Take(3).
-            Select(p => new Book{Title= p.Title, PageCount = p.PageCount, PublishedDate = p.PublishedDate});
-    
+        return librosCollection.
+         Take(3).
+         Select(p => new Book { Title = p.Title, PageCount = p.PageCount, PublishedDate = p.PublishedDate });
+
     }
 
-    public int OperadorCountNumeroLibros200y500() 
+    public int OperadorCountNumeroLibros200y500()
     {
         return librosCollection.Count(p => p.PageCount >= 200 && p.PageCount <= 500);
-            
+
     }
 
     public long OperadorCountNumeroLibros200y500pag()
@@ -156,14 +156,26 @@ public class LinqQueries
 
     }
 
-    public DateTime OperadorMinMenorFechaDePublicacion() 
+    public DateTime OperadorMinMenorFechaDePublicacion()
     {
         return librosCollection.Min(p => p.PublishedDate);
-    
+
     }
 
     public int OperadorMaxNumerodePagLibroMayor()
-    { 
+    {
         return librosCollection.Max(p => p.PageCount);
     }
+
+    public Book OperadorMinByLibroMenorCantidadPag()
+    {
+        return librosCollection.Where(p => p.PageCount > 0).MinBy(p => p.PageCount);
+
+    }
+
+    public Book OperadorMaxByLibroFechaPublicacionMasReciente() 
+    {
+        return librosCollection.MaxBy(p => p.PublishedDate);
+    }
+
 }

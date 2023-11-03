@@ -50,10 +50,19 @@ LinqQueries queries = new LinqQueries();
 //Console.WriteLine($"los  Libros entre 200 y 500 paginas son  = {queries.OperadorCountNumeroLibros200y500pag()}");
 
 //Operador Min Menor Fecha De Publicacion
-Console.WriteLine($"la fecha de publicaciones menor es = {queries.OperadorMinMenorFechaDePublicacion()}");
+//Console.WriteLine($"la fecha de publicaciones menor es = {queries.OperadorMinMenorFechaDePublicacion()}");
 
 //Operador Max Numero de Pag Libro Mayor
-Console.WriteLine($"Numero de paginas del libro mayor es = {queries.OperadorMaxNumerodePagLibroMayor()}");
+//Console.WriteLine($"Numero de paginas del libro mayor es = {queries.OperadorMaxNumerodePagLibroMayor()}");
+
+//Operador MinBy Libro con menor numero de paginas
+var libroMenorPag = queries.OperadorMinByLibroMenorCantidadPag();
+Console.WriteLine($"Titulo = {libroMenorPag.Title}, paginas = {libroMenorPag.PageCount}");
+
+//Operador MaxBy Libro con Fecha de Publicacion Mas Reciente
+var libroMayorFecha = queries.OperadorMaxByLibroFechaPublicacionMasReciente();
+Console.WriteLine($"Titulo = {libroMayorFecha.Title}, paginas = {libroMayorFecha.PublishedDate.ToShortDateString()}");
+
 
 
 //Imprime todos los datos del Json
