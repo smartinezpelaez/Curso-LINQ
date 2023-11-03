@@ -32,9 +32,13 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.CategoriaOrderByJava());
 
 //Categoria OrderByDescending JavaQuery
-ImprimirValores(queries.CategoriaOrderByDescendingJavaQuery());
+//ImprimirValores(queries.CategoriaOrderByDescendingJavaQuery());
 
+//OperadorTakeBuscarCategoriaJavaQuery
+//ImprimirValores(queries.OperadorTakeBuscarCategoriaJavaQuery());
 
+//Operador Skip Selecciona Tercer y Cuarto Libro
+ImprimirValores(queries.OperadorSkipSeleccionaTerceryCuartoLibro());
 
 
 //Imprime todos los datos del Json

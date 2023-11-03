@@ -107,4 +107,32 @@ public class LinqQueries
         //        where l.PageCount > 450
         //        select l).OrderByDescending(p => p.PageCount);
     }
+
+    public IEnumerable<Book> OperadorTakeBuscarCategoriaJavaQuery()
+    {
+        //Manera con Extension method 
+        //return librosCollection.
+        //    Where(p => p.Categories.Contains("Java")).
+        //    OrderByDescending(p => p.PublishedDate).
+        //    Take(3);
+
+        //return librosCollection.
+        //    Where(p => p.Categories.Contains("Java")).
+        //    OrderBy(p => p.PublishedDate).
+        //    TakeLast(3);
+
+        //Manera con query expresion
+        return (from l in librosCollection
+                where l.Categories.Contains("Java")
+                select l).OrderByDescending(p => p.PublishedDate).Take(3);
+    }
+
+    public IEnumerable<Book> OperadorSkipSeleccionaTerceryCuartoLibro() 
+    {
+        return librosCollection.
+            Where(p => p.PageCount > 400).
+            Take(4).
+            Skip(2);
+        
+    }
 }
