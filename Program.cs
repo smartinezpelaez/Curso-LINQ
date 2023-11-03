@@ -44,10 +44,16 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.OperadorSelectTresprimerosLibros());
 
 //Operador Count Numero Libros entre 200 y 500
-Console.WriteLine($"los  Libros entre 200 y 500 paginas son ? = {queries.OperadorCountNumeroLibros200y500()}");
+//Console.WriteLine($"los  Libros entre 200 y 500 paginas son  = {queries.OperadorCountNumeroLibros200y500()}");
 
 //Operador LongCount Numero Libros entre 200 y 500
-Console.WriteLine($"los  Libros entre 200 y 500 paginas son ? = {queries.OperadorCountNumeroLibros200y500pag()}");
+//Console.WriteLine($"los  Libros entre 200 y 500 paginas son  = {queries.OperadorCountNumeroLibros200y500pag()}");
+
+//Operador Min Menor Fecha De Publicacion
+Console.WriteLine($"la fecha de publicaciones menor es = {queries.OperadorMinMenorFechaDePublicacion()}");
+
+//Operador Max Numero de Pag Libro Mayor
+Console.WriteLine($"Numero de paginas del libro mayor es = {queries.OperadorMaxNumerodePagLibroMayor()}");
 
 
 //Imprime todos los datos del Json
