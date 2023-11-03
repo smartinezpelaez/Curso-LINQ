@@ -20,10 +20,21 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.LibrosConStatusQuery());
 
 //Algun libro fue publicado en 2005
-Console.WriteLine($"Algun libro fue publicado en 2005? - {queries.AlgunLibroPublicadoEn2005()}");
+//Console.WriteLine($"Algun libro fue publicado en 2005? - {queries.AlgunLibroPublicadoEn2005()}");
 
 //Algun libro fue publicado en 2005 query
-ImprimirValores(queries.AlgunLibroPublicadoEn2005Query());
+//ImprimirValores(queries.AlgunLibroPublicadoEn2005Query());
+
+//Categoria Python
+//ImprimirValores(queries.CategoriaPython());
+
+//Categoria OrderBy Java
+//ImprimirValores(queries.CategoriaOrderByJava());
+
+//Categoria OrderByDescending JavaQuery
+ImprimirValores(queries.CategoriaOrderByDescendingJavaQuery());
+
+
 
 
 //Imprime todos los datos del Json

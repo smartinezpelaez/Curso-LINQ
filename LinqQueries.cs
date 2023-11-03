@@ -1,4 +1,6 @@
-﻿namespace curso_linq;
+﻿using System.Runtime.InteropServices;
+
+namespace curso_linq;
 
 public class LinqQueries
 {
@@ -73,4 +75,36 @@ public class LinqQueries
                select l;
     }
 
+    public IEnumerable<Book> CategoriaPython() 
+    {
+        //Manera con Extension method 
+        return librosCollection.Where(p => p.Categories.Contains("Python"));
+
+        //Manera con query expresion
+        //return from l in librosCollection
+        //       where l.Categories.Contains("Python")
+        //       select l;    
+    }
+
+    public IEnumerable<Book> CategoriaOrderByJava() 
+    {
+        //Manera con Extension method 
+        return librosCollection.Where(p => p.Categories.Contains("Java")).OrderBy(p => p.Title);
+
+        //Manera con query expresion
+        //return (from l in librosCollection
+        //        where l.Categories.Contains("Java")
+        //        select l).OrderBy(p => p.Title);
+    }
+
+    public IEnumerable<Book> CategoriaOrderByDescendingJavaQuery()
+    {
+        //Manera con Extension method 
+        return librosCollection.Where(p => p.PageCount > 450).OrderByDescending(p => p.PageCount);
+
+        //Manera con query expresion
+        //return (from l in librosCollection
+        //        where l.PageCount > 450
+        //        select l).OrderByDescending(p => p.PageCount);
+    }
 }
