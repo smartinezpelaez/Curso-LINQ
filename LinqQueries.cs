@@ -129,10 +129,18 @@ public class LinqQueries
 
     public IEnumerable<Book> OperadorSkipSeleccionaTerceryCuartoLibro() 
     {
+        //Manera con Extension method 
         return librosCollection.
             Where(p => p.PageCount > 400).
             Take(4).
-            Skip(2);
-        
+            Skip(2);        
+    }
+
+    public IEnumerable<Book> OperadorSelectTresprimerosLibros() 
+    {
+           return librosCollection.
+            Take(3).
+            Select(p => new Book{Title= p.Title, PageCount = p.PageCount, PublishedDate = p.PublishedDate});
+    
     }
 }

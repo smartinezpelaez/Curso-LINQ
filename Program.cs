@@ -38,7 +38,10 @@ LinqQueries queries = new LinqQueries();
 //ImprimirValores(queries.OperadorTakeBuscarCategoriaJavaQuery());
 
 //Operador Skip Selecciona Tercer y Cuarto Libro
-ImprimirValores(queries.OperadorSkipSeleccionaTerceryCuartoLibro());
+//ImprimirValores(queries.OperadorSkipSeleccionaTerceryCuartoLibro());
+
+//Operador Select Tres primeros Libros
+ImprimirValores(queries.OperadorSelectTresprimerosLibros());
 
 
 //Imprime todos los datos del Json
