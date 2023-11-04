@@ -56,12 +56,18 @@ LinqQueries queries = new LinqQueries();
 //Console.WriteLine($"Numero de paginas del libro mayor es = {queries.OperadorMaxNumerodePagLibroMayor()}");
 
 //Operador MinBy Libro con menor numero de paginas
-var libroMenorPag = queries.OperadorMinByLibroMenorCantidadPag();
-Console.WriteLine($"Titulo = {libroMenorPag.Title}, paginas = {libroMenorPag.PageCount}");
+//var libroMenorPag = queries.OperadorMinByLibroMenorCantidadPag();
+//Console.WriteLine($"Titulo = {libroMenorPag.Title}, paginas = {libroMenorPag.PageCount}");
 
 //Operador MaxBy Libro con Fecha de Publicacion Mas Reciente
-var libroMayorFecha = queries.OperadorMaxByLibroFechaPublicacionMasReciente();
-Console.WriteLine($"Titulo = {libroMayorFecha.Title}, paginas = {libroMayorFecha.PublishedDate.ToShortDateString()}");
+//var libroMayorFecha = queries.OperadorMaxByLibroFechaPublicacionMasReciente();
+//Console.WriteLine($"Titulo = {libroMayorFecha.Title}, paginas = {libroMayorFecha.PublishedDate.ToShortDateString()}");
+
+//Operador Sum Para Sumar Cantidad de Paginas Entre 0 y 500
+//Console.WriteLine($"Sumar Cantidad de Paginas Entre 0 y 500 es = {queries.OperadorSumParaSumarCantidadPaginasEntre0y500()}");
+
+//Operador Agregate Titulos De Libros Despues Del 2015
+Console.WriteLine($"Titulos De Libros Despues Del 2015 son = {queries.OperadorAgregateTitulosDeLibrosDespuesDel2015()}");
 
 
 
