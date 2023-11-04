@@ -73,7 +73,12 @@ LinqQueries queries = new LinqQueries();
 //Console.WriteLine($"El promedio de caracteres de los titulos son = {queries.OperadorAvegarePromedioCaracteres()}");
 
 //Operador GroupBy Libros Publicados Despues Del 2000
-ImprimirGrupo(queries.OperadorGroupByLibrosPublicadosDespuesDel2000());
+//ImprimirGrupo(queries.OperadorGroupByLibrosPublicadosDespuesDel2000());
+
+//Operador Lookup Diccionario De Libros Por primera Letra del titulo
+var diccionarioLookup = queries.OperadorLookupDiccionarioDeLibrosPorLetra();
+ImorimirDiccionario(diccionarioLookup, 'A');
+
 
 //Imprime todos los datos del Json
 void ImprimirValores (IEnumerable<Book> listaDeLibros)
@@ -99,3 +104,22 @@ void ImprimirGrupo(IEnumerable<IGrouping<int, Book>> ListadeLibros)
         }
     }
 }
+
+void ImorimirDiccionario(ILookup<char, Book> ListadeLibros, char letra)
+{
+    char mayuscula = Char.ToUpper(letra);
+    if (ListadeLibros[mayuscula].Count() == 0)
+    {
+        Console.WriteLine($"No hay libros que inicien con la letra '{mayuscula}'");
+    }
+    else
+    {
+        Console.WriteLine("{0, -60} {1, 15} {2, 15}\n", "Título", "Nro. Páginas", "Fecha de Publicación");
+        foreach (var book in ListadeLibros[mayuscula])
+        {
+            Console.WriteLine("{0, -60} {1, 15} {2, 15}", book.Title, book.PageCount, book.PublishedDate.ToShortDateString());
+        }
+    }
+}
+
+
