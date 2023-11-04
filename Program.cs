@@ -76,8 +76,11 @@ LinqQueries queries = new LinqQueries();
 //ImprimirGrupo(queries.OperadorGroupByLibrosPublicadosDespuesDel2000());
 
 //Operador Lookup Diccionario De Libros Por primera Letra del titulo
-var diccionarioLookup = queries.OperadorLookupDiccionarioDeLibrosPorLetra();
-ImorimirDiccionario(diccionarioLookup, 'A');
+//var diccionarioLookup = queries.OperadorLookupDiccionarioDeLibrosPorLetra();
+//ImprimirDiccionario(diccionarioLookup, 'A');
+
+//Operador Join Libros filtrados Despues del 2005 Con Mas De 500Pag
+ImprimirValores(queries.OperadorJoinLibrosDespuesdel2005ConMasDe500Pag());
 
 
 //Imprime todos los datos del Json
@@ -105,7 +108,7 @@ void ImprimirGrupo(IEnumerable<IGrouping<int, Book>> ListadeLibros)
     }
 }
 
-void ImorimirDiccionario(ILookup<char, Book> ListadeLibros, char letra)
+void ImprimirDiccionario(ILookup<char, Book> ListadeLibros, char letra)
 {
     char mayuscula = Char.ToUpper(letra);
     if (ListadeLibros[mayuscula].Count() == 0)

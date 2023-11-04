@@ -214,4 +214,15 @@ public class LinqQueries
         return librosCollection.ToLookup(p => p.Title[0], p=>p);
     }
 
+    public IEnumerable<Book> OperadorJoinLibrosDespuesdel2005ConMasDe500Pag() 
+    {
+        var librosDespuesDel2005 = librosCollection.Where(p => p.PublishedDate.Year > 2005);
+
+        var librosConMasDe500pag = librosCollection.Where(p => p.PageCount > 500);
+
+        return librosDespuesDel2005.Join(librosConMasDe500pag, p => p.Title, x => x.Title, (p, x) => p);
+
+    }
+
+
 }
