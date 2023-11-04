@@ -70,8 +70,10 @@ LinqQueries queries = new LinqQueries();
 //Console.WriteLine($"Titulos De Libros Despues Del 2015 son = {queries.OperadorAgregateTitulosDeLibrosDespuesDel2015()}");
 
 //Operador Avegare Promedio Caracteres
-Console.WriteLine($"El promedio de caracteres de los titulos son = {queries.OperadorAvegarePromedioCaracteres()}");
+//Console.WriteLine($"El promedio de caracteres de los titulos son = {queries.OperadorAvegarePromedioCaracteres()}");
 
+//Operador GroupBy Libros Publicados Despues Del 2000
+ImprimirGrupo(queries.OperadorGroupByLibrosPublicadosDespuesDel2000());
 
 //Imprime todos los datos del Json
 void ImprimirValores (IEnumerable<Book> listaDeLibros)
@@ -84,3 +86,16 @@ void ImprimirValores (IEnumerable<Book> listaDeLibros)
     }
 }
 
+void ImprimirGrupo(IEnumerable<IGrouping<int, Book>> ListadeLibros)
+{
+    foreach (var grupo in ListadeLibros)
+    {
+        Console.WriteLine("");
+        Console.WriteLine($"Grupo: {grupo.Key}");
+        Console.WriteLine("{0,-60} {1, 15} {2, 15}\n", "Titulo", "N. Paginas", "Fecha publicacion");
+        foreach (var item in grupo)
+        {
+            Console.WriteLine("{0,-60} {1, 15} {2, 15}", item.Title, item.PageCount, item.PublishedDate.Date.ToShortDateString());
+        }
+    }
+}
