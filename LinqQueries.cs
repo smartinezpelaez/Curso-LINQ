@@ -173,30 +173,34 @@ public class LinqQueries
 
     }
 
-    public Book OperadorMaxByLibroFechaPublicacionMasReciente() 
+    public Book OperadorMaxByLibroFechaPublicacionMasReciente()
     {
         return librosCollection.MaxBy(p => p.PublishedDate);
     }
 
     public int OperadorSumParaSumarCantidadPaginasEntre0y500()
     {
-        return librosCollection.Where(p=>p.PageCount>=0 && p.PageCount <= 500).Sum(p=>p.PageCount);
+        return librosCollection.Where(p => p.PageCount >= 0 && p.PageCount <= 500).Sum(p => p.PageCount);
     }
 
-    public string OperadorAgregateTitulosDeLibrosDespuesDel2015() 
+    public string OperadorAgregateTitulosDeLibrosDespuesDel2015()
     {
         return librosCollection
             .Where(p => p.PublishedDate.Year > 2015)
             .Aggregate("", (TitulosLibros, next) =>
-             {
+            {
                  if (TitulosLibros != string.Empty)
                      TitulosLibros += " - " + next.Title;
                  else
                      TitulosLibros += next.Title;
                  return TitulosLibros;
 
-             });
+            });
     }
 
+    public double OperadorAvegarePromedioCaracteres() 
+    {
+        return librosCollection.Average(p => p.Title.Length);
+    }
 
 }

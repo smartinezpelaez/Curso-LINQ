@@ -67,8 +67,10 @@ LinqQueries queries = new LinqQueries();
 //Console.WriteLine($"Sumar Cantidad de Paginas Entre 0 y 500 es = {queries.OperadorSumParaSumarCantidadPaginasEntre0y500()}");
 
 //Operador Agregate Titulos De Libros Despues Del 2015
-Console.WriteLine($"Titulos De Libros Despues Del 2015 son = {queries.OperadorAgregateTitulosDeLibrosDespuesDel2015()}");
+//Console.WriteLine($"Titulos De Libros Despues Del 2015 son = {queries.OperadorAgregateTitulosDeLibrosDespuesDel2015()}");
 
+//Operador Avegare Promedio Caracteres
+Console.WriteLine($"El promedio de caracteres de los titulos son = {queries.OperadorAvegarePromedioCaracteres()}");
 
 
 //Imprime todos los datos del Json
